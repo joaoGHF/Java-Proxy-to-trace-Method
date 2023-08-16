@@ -38,10 +38,17 @@ class ProxiTest {
 class TraceHandler implements InvocationHandler {
     private Object target;
 
+    /**
+     * Contructor that receives a Object to be inside in the proxy
+     * @param target
+     */
     public TraceHandler(Object target) {
         this.target = target;
     }
 
+    /**
+     * The {@code invoke} method run a method with his parameters 
+     */
     public Object invoke(Object proxy, Method m, Object[] args) throws Throwable {
         System.out.print(target);
         System.out.print("." + m.getName() + "(");
